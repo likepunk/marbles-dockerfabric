@@ -67,8 +67,40 @@ $(document).on('ready', function() {
 		$('.createball').css('border', '0').addClass(color + 'bg');				//set new color
 	});
 	
+	$()
+
 	//drag and drop marble
-	$('#user2wrap, #user1wrap, #trashbin').sortable({connectWith: '.sortable'}).disableSelection();
+	$('#user4wrap, #user3wrap, #user2wrap, #user1wrap, #trashbin').sortable({connectWith: '.sortable'}).disableSelection();
+	$('#user4wrap').droppable({drop:
+		function( event, ui ) {
+			var marble_user = $(ui.draggable).attr('user');
+			if(marble_user.toLowerCase() != bag.setup.USER4){						//marble transfered users
+				if(marble_user.toLowerCase() != user.username.toLowerCase()){		//do not let users steal marbles
+					move_back(ui.draggable);
+				}
+				else{
+					$(ui.draggable).addClass('invalid');
+					transfer($(ui.draggable).attr('id'), bag.setup.USER4);
+				}
+			}
+			return false;
+		}
+	});
+	$('#user3wrap').droppable({drop:
+		function( event, ui ) {
+			var marble_user = $(ui.draggable).attr('user');
+			if(marble_user.toLowerCase() != bag.setup.USER3){						//marble transfered users
+				if(marble_user.toLowerCase() != user.username.toLowerCase()){		//do not let users steal marbles
+					move_back(ui.draggable);
+				}
+				else{
+					$(ui.draggable).addClass('invalid');
+					transfer($(ui.draggable).attr('id'), bag.setup.USER3);
+				}
+			}
+			return false;
+		}
+	});
 	$('#user2wrap').droppable({drop:
 		function( event, ui ) {
 			var marble_user = $(ui.draggable).attr('user');
@@ -381,6 +413,8 @@ function connect_to_server(){
 			}
 			else if(msgObj.msg === 'reset'){							//clear marble knowledge, prepare of incoming marble states
 				console.log('rec', msgObj.msg, msgObj);
+				$('#user4wrap').html('');
+				$('#user3wrap').html('');
 				$('#user2wrap').html('');
 				$('#user1wrap').html('');
 			}
@@ -436,8 +470,14 @@ function build_ball(data){
 		if(data.user && data.user.toLowerCase() == bag.setup.USER1){
 			$('#user1wrap').append(html);
 		}
-		else{
+		else if(data.user && data.user.toLowerCase() == bag.setup.USER2){
 			$('#user2wrap').append(html);
+		}
+		else if(data.user && data.user.toLowerCase() == bag.setup.USER3){
+			$('#user3wrap').append(html);
+		}
+		else {
+			$('#user4wrap').append(html);
 		}
 	}
 	//console.log('marbles', bag.marbles);

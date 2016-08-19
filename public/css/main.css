@@ -233,9 +233,14 @@ label {
   min-height: 750px; }
 
 #contentPanel {
-  min-height: 500px;
+  min-height: 800px;
   position: relative;
-  margin: 30px 50px auto; }
+  margin: 30px 20px auto; }
+
+#homePanel {
+  min-height: 800px;
+  position: relative;
+  margin: 5px 10px auto; }
 
 #footerPanel {
   position: fixed;
@@ -294,18 +299,12 @@ label {
   cursor: pointer;
   border-bottom: 1px #fff solid; }
 
-#description {
-  position: absolute;
-  bottom: 75px;
-  width: 100%;
-  text-align: center; }
-
 #toolWrap {
   width: 100%;
   text-align: center;
   position: fixed;
   bottom: 55px;
-  margin-left: -50px; }
+  margin-left: -30px; }
 
 #trashbin {
   width: 200px;
@@ -314,8 +313,13 @@ label {
   text-align: center;
   margin-top: -70px; }
 
-#user1wrap, #user2wrap {
-  min-height: 100px; }
+#user1wrap, #user2wrap, #user3wrap, #user4wrap {
+  min-height: 150px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  padding: 5px;
+  border: 2px dashed white;
+  border-radius: 10px; }
 
 .createball {
   font-size: 275px;
@@ -531,7 +535,8 @@ label {
   border: #2EB9D6 solid 1px;
   font-size: 12px;
   transition: background-color 0.5s ease;
-  font-weight: bold; }
+  font-weight: bold;
+  cursor: pointer; }
 
 /*
 .block:last-of-type{

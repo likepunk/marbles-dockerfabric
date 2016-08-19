@@ -20,7 +20,9 @@
 	font-size:12px;
 	transition: background-color 0.5s ease;
 	font-weight: bold;
+	cursor:pointer;
 }
+
 /*
 .block:last-of-type{
 	background:#555;
@@ -28,6 +30,7 @@
 	border-color:#555;
 }
 */
+
 .lastblock{
 	transition: background-color 1s ease;
 	background: $hi_color2;

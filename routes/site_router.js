@@ -26,27 +26,18 @@ function build_bag(){
 // Home
 // ============================================================================================================================
 router.route('/').get(function(req, res){
-	res.redirect('/p1');
+	res.redirect('/v1');
 });
 
-// ============================================================================================================================
-// Part 1
-// ============================================================================================================================
-router.route('/p1').get(function(req, res){
-	res.render('part1', {title: 'Marbles Part 1', bag: build_bag()});
-});
-router.route('/p1/:page?').get(function(req, res){
-	res.render('part1', {title: 'Marbles Part 1', bag: build_bag()});
-});
 
 // ============================================================================================================================
 // Part 2
 // ============================================================================================================================
-router.route('/p2').get(function(req, res){
-	res.render('part2', {title: 'Marbles Part 2', bag: build_bag()});
+router.route('/v1').get(function(req, res){
+	res.render('part2', {title: 'Marbles', bag: build_bag()});
 });
-router.route('/p2/:page?').get(function(req, res){
-	res.render('part2', {title: 'Marbles Part 2', bag: build_bag()});
+router.route('/v1/:page?').get(function(req, res){
+	res.render('part2', {title: 'Marbles', bag: build_bag()});
 });
 
 module.exports = router;
