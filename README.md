@@ -1,36 +1,36 @@
 # Marbles Demo
 
-[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/ibm-blockchain/marbles.git)
+This Marbles Demo is built on top of the existing [marbles](https://github.com/IBM-Blockchain/marbles) demo
+
+To launch this Marbles application, first you will need to setup a blockchain network. While you can choose to setup your own blockchain network locally or remotely, this repository makes use of the HSBN (High Security Business Network) on Bluemix. All the peer, ca, and relevant network information is specified in mycreds.json
+
+If you decide to launch a new Bluemix blockchain network, from the Dashboard on Bluemix, 
+
+1. Click the blockchain service tile
+1. On the left hand navigation, click Service Credentials
+1. Copy and paste the entire file into the mycreds.json
+
+## Running Marbles from Systems Z
+
+Once you have your blockchain network setup, you can run this application.
+
+To run the server-side Marbles application, you must first download the [IBM SDK](https://developer.ibm.com/node/sdk/#v12). This will download the installation package. Install the package and add the location of where the node, npm, and other executables to the PATH environment variable. For instance, during the installation, if the installer says it will install to ~/ibm/node, then the executables will be inside ~/ibm/node/etc. Once this path is added to the PATH variable, node and npm can be called from any directory. 
+
+Once the SDK is download and setup, if you haven't already, clone this repository. Change into the directory containing this repo and run the following commands:
+
+1. $ npm install
+1. $ gulp
+
+***
+
+After you see the message
 
 
-# Application Background
+------------------------------------ Websocket Up ----------------------------------------
 
-Hold on to your hats everyone, this application is going to demonstrate transferring marbles between two users leveraging IBM Blockchain.
-We are going to do this in Node.js and a bit of GoLang. 
-The backend of this application will be the GoLang code running in our blockchain network. 
-The chaincode itself will create a marble by storing it to the chaincode state. 
-The chaincode itself is able to store data as a string in a key/value pair setup. 
-Thus we will stringify JSON objects to store more complex structures. 
 
-Attributes of a marble:
 
-	1. name (unique string, will be used as key)
-	1. color (string, css color names)
-	1. size (int, size in mm)
-	1. user (string)
-	
-We are going to create a Web UI that can set these values and pass them to the chaincode. 
-Interacting with the chaincode is done with a HTTP REST call to a peer on the network. 
-The ibc-js SDK will abstract the details of the REST calls away.
-This allow us to use dot notation to call our GoLang functions (such as `chaincode.init_marble(args)`). 
-
-Start the tutorials below to have your own marbles blockchain demo!
-
-## Tutorial / Documentation
-- Looking for chaincode documentation? Check out the [learn chaincode](https://github.com/IBM-Blockchain/learn-chaincode) repo - **start here!**
-- Tutorial for Marbles [Part 1](./tutorial_part1.md)
-- Tutorial for Marbles [Part 2](./tutorial_part2.md) 
-- Documentation for IBM Blockchain [IBC-JS SDK](https://github.com/IBM-Blockchain/ibm-blockchain-js) (our REST based SDK)
+printed in the console, the chaincode is successfully deployed.
 
 ***
 
